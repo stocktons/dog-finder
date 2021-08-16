@@ -6,12 +6,7 @@ function DogList({ dogs }) {
         <div>
             <h1>Look! Dogs!</h1>
             <ul>
-                {dogs.map(dog => (
-                    <li key={dog}>
-                        <Link to={`/dogs/${dog}`}>{dog}</Link>
-                    </li>
-    
-                ))}
+                {dogs.map(dog => (<li key={dog.name}><Link to={`/dogs/${dog.name}`}>{dog.name}</Link></li>))}
             </ul>
         </div>
     )

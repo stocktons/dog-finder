@@ -1,23 +1,25 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
-import DogList from "./Dogs";
-import Whiskey from "./Whiskey";
-import Duke from "./Duke";
-import Perry from "./Perry";
-import Tubby from "./Tubby";
+import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
+import DogList from "./DogList";
+import DogFinder from "./DogFinder";
+import duke from './images/duke.jpg';
+import tubby from './images/tubby.jpg';
+import perry from './images/perry.jpg';
+import whiskey from './images/whiskey.jpg';
+import Navbar from './Navbar';
 import './App.css';
 
 function App({ dogs }) {
   return (
     <div className="App">
       <BrowserRouter>
+        <Navbar dogs={dogs}/>
         <Switch>
           <Route exact path="/dogs" >
             <DogList dogs={dogs} /> 
           </Route>
           <Route path="/dogs/:name" >
-            <DogDetails dogs={dogs}/>
+            <DogFinder dogs={dogs} />
           </Route>
           <Redirect to="/dogs" />
         </Switch>
