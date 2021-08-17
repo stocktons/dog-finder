@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 import DogList from "./DogList";
 import DogFinder from "./DogFinder";
@@ -9,7 +9,8 @@ import whiskey from './images/whiskey.jpg';
 import Navbar from './Navbar';
 import './App.css';
 
-function App({ dogs }) {
+function App(props) {
+  let [dogs, setDogs] = useState(props.dogs);
   return (
     <div className="App">
       <BrowserRouter>
