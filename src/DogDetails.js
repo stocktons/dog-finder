@@ -1,13 +1,14 @@
 import React from "react";
 
-function DogDetails({ dog }) {
+function DogDetails({ name, src, age, facts }) { // destructuring because this component doesn't really need
+    // to know about the whole object. It's a simple enough component that it doesn't need more. 
     return (
         <div>
-            <h1>{dog.name}</h1>
-            <img src={dog.src} alt={`${dog.name} is a cute dog`} />
-            <p>{`Age: ${dog.age}`}</p>
+            <h1>{name}</h1>
+            <img src={src} alt={`${name} is a cute dog`} />
+            <p>{`Age: ${age}`}</p>
             <ul>
-                {dog.facts.map(f => <li>{f}</li>)}
+                {facts.map((f, idx) => <li key={idx}>{f}</li>)}
             </ul>
         </div>
     )
